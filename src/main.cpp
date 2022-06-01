@@ -4,22 +4,34 @@
 #include "lz78.hpp"
 
 int main(int argc, char *argv[]) {
+  // Testing
+  Lz78::Compress("test.txt");
+  return 0;
+
+  if (argc < 3 || argc == 4 || argc > 5) {
+    std::cout << "lz78: invalid input" << std::endl;
+    return 1;
+  }
 
   // Takes input file argument
   std::string in_file = std::string(argv[2]);
 
-  std::string out_file = "";
   // Takes output file argument (if given)
+  std::string out_file = "";
   if (argc == 5){
     out_file = std::string(argv[3]);
   }
 
   // Starts compressing or decompressing
-  if (std::string(argv[1]) == "-c")
+  if (std::string(argv[1]) == "-c") {
     Lz78::Compress(in_file, out_file);
+  }
 
-  else if (std::string(argv[1]) == "-x")
+  else if (std::string(argv[1]) == "-x") {
+    std::cout << "Starting file decompression" << std::endl;
     Lz78::Decompress(in_file, out_file);
+    std::cout << "Decompression completed successfully" << std::endl;
+  }
 
   return 0;
 }

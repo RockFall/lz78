@@ -1,11 +1,10 @@
-make.exe --dry-run --keep-going --print-directory
+make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'd:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78'
- 
-g++ -std=c++11 -Wall -o obj/file_handler.o -c src/file_handler.cpp
  
 g++ -std=c++11 -Wall -o obj/lz78.o -c src/lz78.cpp
 g++ -std=c++11 -Wall -o obj/main.o -c src/main.cpp
-g++ -std=c++11 -Wall -o obj/suffixtree.o -c src/suffixtree.cpp
-g++ -std=c++11 -Wall -o tp01 obj/file_handler.o obj/lz78.o obj/main.o obj/suffixtree.o 
+ 
+g++ -std=c++11 -Wall -o obj/prefixtree.o -c src/prefixtree.cpp
+g++ -std=c++11 -Wall -o tp01 obj/lz78.o obj/main.o obj/prefixtree.o 
 make: Leaving directory 'd:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78'
  

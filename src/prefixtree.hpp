@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <vector>
+#include <unordered_map>
 #include <memory>
 
 // For making it prettier to look at all those std::shared_ptr<T>
@@ -15,15 +15,15 @@ constexpr Ptr<T> MakePtr(Args&& ... args)
   return std::make_shared<T>(std::forward<Args>(args)...);
 }
 
-// A compressed TRIE that stores all suffixes of given text
-class SuffixTree {
+// A compressed TRIE that stores all prefixes of given text
+class PrefixTree {
 public:
   // Constructor/Destructor
-  SuffixTree();
-  ~SuffixTree();
+  PrefixTree();
+  ~PrefixTree();
 
-  // Inserts given suffix into the tree
-  void insert(const std::string suffix);
+  // Inserts given prefix into the tree
+  void insert(const std::string prefix);
 
   // Searchs the tree for given pattern, returning TRUE if found
   bool contains(const std::string pattern);
@@ -31,10 +31,13 @@ public:
   // Returns the code associated with given pattern
   int code_of(const std::string pattern);
 
-  // Return a suffix in the tree associated with given code
+  // Return a prefix in the tree associated with given code
   std::string get_by_code(const int code);
 
 private:
+  // ------  PRIVATE STRUCTURES  ------
+
+  // Structure that stores the last search for optimizations
   struct LastSearch {
     LastSearch(std::string p="", int c=0) : pattern(p), code(c) {}
     void update(std::string p = "", int c = 0) { pattern = p; code = c; }
@@ -42,22 +45,28 @@ private:
     int code;
   };
 
-  LastSearch last_search = LastSearch("", 0);
-
-
-
+  // Structure of a Node in the TRIE
   struct Node {
-    std::vector<Ptr<Node>> children;
-    Ptr<Node> suffixLink;
-
-    int start;
-    Ptr<int> end;
-
-    int suffixIdx;
+    std::unordered_map<char, Ptr<Node>> children;
+    int prefixIdx = -1;
+    bool isEnd = false;
   };
 
-  Ptr<Node> new_node(int start, Ptr<int> end);
+private:
+// ------  PRIVATE FUNCTIONS  ------
+  Ptr<Node> TrieSearch(const Ptr<Node> root, const std::string str);
+  void TrieInsert(const std::string prefix);
+  Ptr<Node> MakeNode();
+  Ptr<Node> MakeNode(const int index);
+  Ptr<Node> MakeNode(const int index, const bool isEnd);
+
   int edge_length(Ptr<Node> node);
   int walk_down(Ptr<Node> currNode);
   void extend(int position);
+
+private:
+  // ------  PRIVATE VARIABLES  ------
+  LastSearch _last_search = LastSearch("", -1);
+  Ptr<Node> _root = nullptr;
+  int _lastIdx = -1;
 };

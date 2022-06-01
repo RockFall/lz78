@@ -5,9 +5,8 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Sat May 28 00:14:37 2022
+# Make data base, printed on Wed Jun 01 10:49:53 2022
 
 # Variables
 
@@ -32,7 +31,7 @@ USERPROFILE = C:\Users\caioh
 # environment
 LOCALAPPDATA = C:\Users\caioh\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-72257fad-bb7b-41ea-9e34-34b36e89d2f5-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-c82caec3-c05e-49d3-bb94-80f77ec3353c-sock
 # environment
 VSCODE_CWD = D:\Faculdade\2022-1 UFMG\Algoritmos 2\TP01\lz78
 # environment
@@ -52,7 +51,7 @@ GOPATH = C:\Users\caioh\gocode
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_14288_XVFIWZLLOAWDXPFH
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_16740_BAHTQZPBDQBUDYRA
 # environment
 VS160COMCOMNTOOLS = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\
 # environment
@@ -76,7 +75,8 @@ LANG = C
 # default
 .LOADED := 
 # environment
-TMP = C:\Users\caioh\AppData\Local\Temp
+TMP = C:\Users\caioh\AppData 
+\Local\Temp
 # default
 .INCLUDE_DIRS = .
 # environment
@@ -92,7 +92,7 @@ CURDIR := d:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
@@ -105,14 +105,14 @@ MFLAGS = -pqrR
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
 # automatic
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
-# makefile (from 'suffixtree.d', line 1)
-MAKEFILE_LIST := Makefile file_handler.d lz78.d main.d suffixtree.d
+# makefile (from 'prefixtree.d', line 1)
+MAKEFILE_LIST := Makefile lz78.d main.d prefixtree.d
 # automatic
 @F = $(notdir $@)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 14288
+VSCODE_PID = 16740
 # makefile (from 'Makefile', line 11)
 APPNAME = tp01
 # automatic
@@ -199,8 +199,7 @@ MAKE_VERSION := 4.3
 PROGRAMFILES(X86) = C:\Program Files (x86)
 # makefile (from 'Makefile', line 8)
 LDFLAGS = 
-# makefile (from 'Makefile', line 24) 
-
+# makefile (from 'Makefile', line 24)
 DEL = del
 # environment
 USERDOMAIN_ROAMINGPROFILE = FALL-PC
@@ -253,7 +252,7 @@ CC = g++
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 # variable set hash-table stats:
-# Load=120/1024=12%, Rehash=0, Collisions=13/183=7%
+# Load=120/1024=12%, Rehash=0, Collisions=13/181=7%
 
 # Pattern-specific Variable Values
 
@@ -261,10 +260,10 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
 
 # Directories
 
-# src (key d:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78/src, mtime 1653706715): 10 files, no impossibilities.
-# . (key d:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78, mtime 1653707676): 13 files, no impossibilities.
+# src (key d:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78/src, mtime 1654091323): 11 files, no impossibilities.
+# . (key d:/Faculdade/2022-1 UFMG/Algoritmos 2/TP01/lz78, mtime 1654089194): 14 files, no impossibilities.
 
-# 23 files, no impossibilities in 2 directories.
+# 25 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -279,11 +278,6 @@ obj/%.o: src/%.cpp
 # 2 implicit rules, 0 (0.0%) terminal.
 # Files
 
-obj/suffixtree.o: src/suffixtree.cpp
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
 cleandepw:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -292,10 +286,40 @@ cleandepw:
 #  recipe to execute (from 'Makefile', line 69):
 	$(DEL) $(DEP)
 
-obj/main.o: src/main.cpp
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+# Not a target:
+src/prefixtree.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 10:43:39
+#  File has been updated.
+#  Successfully updated.
+
+obj/main.o: src/main.cpp src/main.cpp src/lz78.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-06-01 10:13:14
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/main.o
+# automatic
+# * := main
+# automatic
+# < := src/main.cpp
+# automatic
+# + := src/main.cpp src/main.cpp src/lz78.hpp
+# automatic
+# % := 
+# automatic
+# ^ := src/main.cpp src/lz78.hpp
+# automatic
+# ? := src/main.cpp
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
+#  recipe to execute (from 'Makef 
+ile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
 
 cleandep:
 #  Phony target (prerequisite of .PHONY).
@@ -304,13 +328,6 @@ cleandep:
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 58):
 	$(RM) $(DEP)
-
-# Not a target:
-src/suffixtree.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-27 23:13:51
-#  File has been updated.
-#  Successfully updated.
 
 # Not a target:
 Makefile:
@@ -322,11 +339,20 @@ Makefile:
 # Not a target:
 src/main.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-27 23:52:08
+#  Last modified 2022-06-01 10:22:27
 #  File has been updated.
 #  Successfully updated.
 
-obj/lz78.o: src/lz78.cpp
+obj/lz78.o: src/lz78.cpp src/lz78.cpp src/lz78.hpp src/prefixtree.hpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'lz78'
+#  Last modified 2022-06-01 10:13:14
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 47):
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
+obj/prefixtree.o: src/prefixtree.cpp src/prefixtree.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -340,70 +366,24 @@ clean:
 	$(RM) $(DELOBJ) $(DEP) $(APPNAME)
 
 # Not a target:
-src/file_handler.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-05-28 00:11:18
-#  File has been updated.
-#  Successfully updated.
-
-file_handler.d: src/file_handler.cpp
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'file_handler'
-#  Last modified 2022-05-28 00:14:36
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
-
-# Not a target:
 src/lz78.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-28 00:11:17
+#  Last modified 2022-06-01 10:12:51
 #  File has been updated.
 #  Successfully updated.
 
-obj/file_handler.o: src/file_handler.cpp src/file_handler.cpp
+# Not a target:
+src/prefixtree.hpp:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'file_handler'
-#  File does not exist.
+#  Last modified 2022-06-01 09:50:14
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/file_handler.o
-# automatic
-# * := file_handler
- 
-# automatic
-# < := src/file_handler.cpp
-# automatic
-# + := src/file_handler.cpp src/file_handler.cpp
-# automatic
-# % := 
-# automatic
-# ^ := src/file_handler.cpp
-# automatic
-# ? := src/file_handler.cpp
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
-#  recipe to execute (from 'Makefile', line 47):
-	$(CC) $(CXXFLAGS) -o $@ -c $<
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-suffixtree.d: src/suffixtree.cpp
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'suffixtree'
-#  Last modified 2022-05-28 00:14:36
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 40):
-	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
 
 all: tp01
 #  Command line target.
@@ -414,6 +394,15 @@ all: tp01
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
+prefixtree.d: src/prefixtree.cpp
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'prefixtree'
+#  Last modified 2022-06-01 10:49:52
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 40):
+	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
+
 cleanw:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
@@ -422,7 +411,7 @@ cleanw:
 #  recipe to execute (from 'Makefile', line 64):
 	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
 
-tp01: obj/file_handler.o obj/lz78.o obj/main.o obj/suffixtree.o
+tp01: obj/lz78.o obj/main.o obj/prefixtree.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
@@ -435,11 +424,18 @@ tp01: obj/file_handler.o obj/lz78.o obj/main.o obj/suffixtree.o
 main.d: src/main.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-05-28 00:14:36
+#  Last modified 2022-06-01 10:49:52
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
+
+# Not a target:
+src/lz78.hpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-06-01 08:39:53
+#  File has been updated.
+#  Successfully updated.
 
 .PHONY: clean cleandep cleanw cleandepw
 #  Implicit rule search has not been done.
@@ -449,27 +445,27 @@ main.d: src/main.cpp
 lz78.d: src/lz78.cpp
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'lz78'
-#  Last modified 2022-05-28 00:14:36
+#  Last modified 2022-06-01 10:49:52
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 40):
 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
 
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=0/76=0%
+# Load=21/1024=2%, Rehash=0, Collisions=0/74=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variabl 
-e) search path.
+# No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 45 / storage = 443 B / avg = 9 B
-# current buf: size = 8174 B / used = 443 B / count = 45 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 46 / storage = 431 B / avg = 9 B
+# current buf: size = 8174 B / used = 431 B / count = 46 / avg = 9 B
 
-# strcache performance: lookups = 99 / hit rate = 54%
+# strcache  
+performance: lookups = 99 / hit rate = 53%
 # hash-table stats:
-# Load=45/8192=1%, Rehash=0, Collisions=0/99=0%
-# Finished Make data base on Sat May 28 00:14:37 2022
+# Load=46/8192=1%, Rehash=0, Collisions=0/99=0%
+# Finished Make data base on Wed Jun 01 10:49:53 2022
 
  

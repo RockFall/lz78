@@ -109,16 +109,6 @@ void PrefixTree::TrieInsert(const std::string str) {
   explore->isEnd = true;
 }
 
-Ptr<PrefixTree::Node> PrefixTree::MakeNode() {
-  return MakePtr<Node>();
-}
-
-Ptr<PrefixTree::Node> PrefixTree::MakeNode(const int index) {
-  Ptr<Node> newNode = MakePtr<Node>();
-  newNode->prefixIdx = index;
-  return newNode;
-}
-
 Ptr<PrefixTree::Node> PrefixTree::MakeNode(const int index, const bool isEnd) {
   Ptr<Node> newNode = MakePtr<Node>();
   newNode->prefixIdx = index;

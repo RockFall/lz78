@@ -4,10 +4,6 @@
 #include "lz78.hpp"
 
 int main(int argc, char *argv[]) {
-  // Testing
-  Lz78::Compress("test.txt");
-  return 0;
-
   if (argc < 3 || argc == 4 || argc > 5) {
     std::cout << "lz78: invalid input" << std::endl;
     return 1;

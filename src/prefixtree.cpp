@@ -16,7 +16,7 @@ bool PrefixTree::contains(const std::string pattern) {
   int code = -1;
 
   Ptr<Node> found = TrieSearch(_root, pattern);
-  if (found->isEnd)
+  if (found != nullptr && found->isEnd)
     code = found->prefixIdx;
 
   this->_last_search.update(pattern, code);
@@ -38,7 +38,7 @@ int PrefixTree::code_of(const std::string pattern) {
   int code = -1;
 
   Ptr<Node> found = TrieSearch(_root, pattern);
-  if (found->isEnd)
+  if (found != nullptr && found->isEnd)
     code = found->prefixIdx;
 
   this->_last_search.update(pattern, code);
@@ -86,6 +86,7 @@ void PrefixTree::TrieInsert(const std::string str) {
   if (str == "") {
     _lastIdx++;
     _root->children['\0'] = MakeNode(_lastIdx, true);
+    _last_search.update("", 0);
     return;
   }
 

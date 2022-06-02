@@ -31,9 +31,18 @@ void Lz78::Compress(std::string in_file, std::string out_file) {
   std::string finalResult = "";
   for (size_t i = 0; i < data_size; ++i)
   {
+    if (i == data_size/4)
+      std::cout << "25%" << std::endl;
+    if (i == (data_size)/2)
+      std::cout << "50%" << std::endl;
+    if (i == (data_size*3)/4)
+      std::cout << "75%" << std::endl;
+    if (i == data_size-1)
+      std::cout << "100%" << std::endl;
+
     char c = data[i];
     //
-    if (dict.contains(pattern)) {
+    if (dict.contains(pattern + c)) {
       pattern += c;
     } else {
       finalResult += "(" + std::to_string(dict.code_of(pattern)) + ", " + c + ")";
@@ -41,7 +50,7 @@ void Lz78::Compress(std::string in_file, std::string out_file) {
       pattern = "";
     }
   }
-  finalResult += "(" + std::to_string(dict.code_of(pattern)) + ", " + "" + ")";
+  //finalResult += "(" + std::to_string(dict.code_of(pattern)) + ", " + "" + ")";
   std::cout << "Compression completed successfully" << std::endl;
 
   // Writes the result on file

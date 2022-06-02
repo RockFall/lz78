@@ -3,6 +3,10 @@
 
 #include "lz78.hpp"
 
+// The programs accepts as parameters:
+// ( [ ] representing optional parameters )
+// ./tp01 -c <input file> [-o <output file>]  -> Compressing
+// ./tp01 -x <input file> [-o <output file>]  -> Decompressing
 int main(int argc, char *argv[]) {
   if (argc < 3 || argc == 4 || argc > 5) {
     std::cout << "lz78: invalid input" << std::endl;

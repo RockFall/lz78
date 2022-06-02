@@ -50,6 +50,7 @@ private:
 
   // Structure of a Node in the TRIE
   struct Node {
+    // unordered_map allows constant time children lookup
     std::unordered_map<char, Ptr<Node>> children;
     int prefixIdx = -1;
     bool isEnd = false;
@@ -57,19 +58,21 @@ private:
 
 private:
 // ------  PRIVATE FUNCTIONS  ------
+  // Searchs the given string in the tree starting at given begin node
+  // Returns: - the node at which the search stopped at
+  //              (will be isEnd==true if at the end of a prefix)
+  //          - nullptr if the given string was not found
   Ptr<Node> TrieSearch(const Ptr<Node> root, const std::string str);
+  // Inserts a given prefix into the tree
   void TrieInsert(const std::string prefix);
-  Ptr<Node> MakeNode();
-  Ptr<Node> MakeNode(const int index);
-  Ptr<Node> MakeNode(const int index, const bool isEnd);
-
-  int edge_length(Ptr<Node> node);
-  int walk_down(Ptr<Node> currNode);
-  void extend(int position);
+  // Creates and returns a new node with optional parameters
+  Ptr<Node> MakeNode(const int index=-1, const bool isEnd=false);
 
 private:
   // ------  PRIVATE VARIABLES  ------
   LastSearch _last_search = LastSearch("", -1);
   Ptr<Node> _root = nullptr;
+  // Last added prefix's code to keep track of
+  // the code of the next insertion
   int _lastIdx = -1;
 };

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <unordered_map>
 
+// Prints on the screen the percentage of the data that
+// has been already compressed or decompressed
 void DisplayPercentage(int i, int data_size) {
   if (i == data_size/4)
       std::cout << "25%" << std::endl;
@@ -49,10 +51,12 @@ void Lz78::Compress(std::string in_file, std::string out_file) {
   //      insert pattern+char into the dictionary and resets the pattern
   std::cout << "Starting file compression" << std::endl;
   std::string finalResult = "";
-  for (size_t i = 0; i < data_size; ++i)
+  bool displayPercentage = data_size >= 2000;
+  for (int i = 0; i < data_size; ++i)
   {
     // Useful info for big compressions
-    DisplayPercentage(i, data_size);
+    if (displayPercentage)
+      DisplayPercentage(i, data_size);
 
     char c = data[i];
 
@@ -109,7 +113,12 @@ void Lz78::Decompress(std::string in_file, std::string out_file) {
   std::cout << "Starting file decompression" << std::endl;
   std::string finalResult = "";
   int insertionIndex = 0;
-  for (size_t i = 0; i < data_size; ++i) {
+  bool displayPercentage = data_size >= 2000;
+  for (int i = 0; i < data_size; ++i) {
+    // Useful info for big compressions
+    if (displayPercentage)
+      DisplayPercentage(i, data_size);
+
     if (data[i] == '('){
       ++i;
       // -- Reading New Pair --

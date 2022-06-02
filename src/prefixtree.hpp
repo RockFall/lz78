@@ -4,7 +4,8 @@
 #include <unordered_map>
 #include <memory>
 
-// For making it prettier to look at all those std::shared_ptr<T>
+// Encapsulation for a shared_ptr<>
+// For making it prettier to look at all those std::shared_ptr<Node>'s
 // Use:
 //       Ptr<int> new_int_ptr = MakePtr<int>(4);
 template<typename T>
@@ -15,6 +16,7 @@ constexpr Ptr<T> MakePtr(Args&& ... args)
   return std::make_shared<T>(std::forward<Args>(args)...);
 }
 
+// -------------------------------------------------------------------------------------
 // A compressed TRIE that stores all prefixes of given text
 class PrefixTree {
 public:
@@ -29,6 +31,7 @@ public:
   bool contains(const std::string pattern);
 
   // Returns the code associated with given pattern
+  // Each code is given to
   int code_of(const std::string pattern);
 
   // Return a prefix in the tree associated with given code

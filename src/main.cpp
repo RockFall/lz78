@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
   // Takes output file argument (if given)
   std::string out_file = "";
   if (argc == 5){
-    out_file = std::string(argv[3]);
+    out_file = std::string(argv[4]);
   }
 
   // Starts compressing or decompressing
@@ -24,9 +24,7 @@ int main(int argc, char *argv[]) {
   }
 
   else if (std::string(argv[1]) == "-x") {
-    std::cout << "Starting file decompression" << std::endl;
     Lz78::Decompress(in_file, out_file);
-    std::cout << "Decompression completed successfully" << std::endl;
   }
 
   return 0;

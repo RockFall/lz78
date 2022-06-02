@@ -1,7 +1,11 @@
 #include "prefixtree.hpp"
 
 PrefixTree::PrefixTree()  {
-
+  // Empty constructor
+  // Default values are
+  // _last_search = LastSearch("", -1);
+  // _root = nullptr;
+  // _lastIdx = -1;
 }
 PrefixTree::~PrefixTree() {
 
